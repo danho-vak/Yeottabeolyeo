@@ -147,9 +147,33 @@ h6,
 }
 
 html {
-  height: calc(var(--vh, 1vh) * 100);
+  height: calc(var(--vh, 1svh) * 100);
 }
 main {
-  height: calc(100vh - var(--vh, 1vh) * 100)
+  height: calc(100svh - var(--vh, 1svh) * 100);
 }
 
+/*** YTBL ***/
+#navbar-brand-img-btn {
+  padding-bottom: 0.5rem!important;
+}
+
+#main-root-wrapper {
+  height: 100%;
+}
+
+#content-wrapper {
+  height: 100%;
+}
+
+#map {
+  width: 100vw;
+  height: calc(100svh - var(--vh, 1svh) * 100);
+}
+
+#search-btn-wrapper {
+  z-index: 9999;
+  top: calc(var(--mainH, 100svh) - 10svh);
+  left: calc(50vw + 1rem);
+  transform: translate(-50%, 0%);
+}

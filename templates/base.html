@@ -40,30 +40,6 @@
     <script type="text/javascript" src="https://sgisapi.kostat.go.kr/OpenAPI3/auth/javascriptAuth?consumer_key={{ SGIS_CONSUMER_KEY }}"></script>
 
     <style>
-      /*** YTBL ***/
-#navbar-brand-img-btn {
-  padding-bottom: 0.5rem!important;
-}
-
-#main-root-wrapper {
-  height: 100%;
-}
-
-#content-wrapper {
-  height: 100%;
-}
-
-#map {
-  width: 100vw;
-  height: 100%;
-}
-
-#search-btn-wrapper {
-  z-index: 9999;
-  top: calc(var(--mainH, 100vh) - 10vh);
-  left: calc(50vw + 1rem);
-  transform: translate(-50%, 0%);
-}
 
     </style>
 </head>
@@ -119,6 +95,7 @@
 
       const navbarVh = document.body.querySelector('header').offsetHeight * 0.01;
       document.querySelector('main').style.setProperty('--vh', `${navbarVh}px`);
+      document.getElementById('map').style.setProperty('--vh', `${navbarVh}px`);
 
       const mainVh = document.querySelector('#main-root-wrapper').offsetHeight;
       document.querySelector('#search-btn-wrapper').style.setProperty('--mainH', `${mainVh}px`);
