@@ -153,27 +153,3 @@ main {
   height: calc(100vh - var(--vh, 1vh) * 100)
 }
 
-/*** YTBL ***/
-#navbar-brand-img-btn {
-  padding-bottom: 0.5rem!important;
-}
-
-#main-root-wrapper {
-  height: 100%;
-}
-
-#content-wrapper {
-  height: 100%;
-}
-
-#map {
-  width: 100vw;
-  height: 100%;
-}
-
-#search-btn-wrapper {
-  z-index: 9999;
-  top: calc(var(--mainH, 100vh) - 2rem);
-  left: calc(50vw + 1rem);
-  transform: translate(-50%, 0%);
-}
