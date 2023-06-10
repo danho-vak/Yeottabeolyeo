@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content_area %}
+  <div id="map"></div>
+
+  <div class="position-absolute" style="z-index: 9999; left: calc(50vw - 47px); top: 85vh;">
+    <button class="btn btn-warning" id="search-btn">동네 찾기</button>
+  </div>
+  <div class="offcanvas offcanvas-bottom" tabindex="-1" id="search-offcanvas" style="height: 20vh!important;">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">동네 찾기</h5>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" id="search-input">
+        <button class="btn btn-primary" type="button" id="search-input-btn">검색</button>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block extra_script %}
+  <script>
+    const VWORKD_KEY = '{{ VWORLD_KEY }}'
+    const GET_PIN_URL = '{% url 'map:get_pin' %}';
+    const USER_PIN_IMAGE_PATH = '{% static 'img/maps/user_pin_small.png' %}';
+    const CB_PIN_IMAGE_PATH = '{% static 'img/maps/cb_pin_small.png' %}';
+    const BL_PIN_IMAGE_PATH = '{% static 'img/maps/bl_pin_small.png' %}';
+    const ALL_BTN_IMAGE_PATH = '{% static 'img/maps/all_btn.png' %}';
+    const CB_BTN_IMAGE_PATH = '{% static 'img/maps/cb_btn.png' %}';
+    const BL_BTN_IMAGE_PATH = '{% static 'img/maps/bl_btn.png' %}';
+    const WHERE_AM_I_IMAGE_PATH = '{% static 'img/maps/where_am_i_btn.png' %}';
+  </script>
+  <script src="{% static 'js/map.js' %}"></script>
+  <script src="{% static 'js/search.js' %}"></script>
+{% endblock %}

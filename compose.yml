@@ -1,0 +1,50 @@
+version: '3'
+
+# docker가 관리하는 가상 볼륨
+volumes:
+  pgdata:
+
+services:
+  db:
+    image: postgis/postgis:14-3.3
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    env_file:
+      - .envs/.postgres
+    ports:
+    - "5432:5432"
+
+  nginx:
+    image: nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./:/webapps
+      - ./compose/nginx:/etc/nginx/conf.d
+      - ./compose/certs:/etc/nginx/certs   # local환경에서는 dummy_certs로
+    depends_on:
+      - webapp
+
+  webapp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - .envs/.django
+      - .envs/.postgres
+    environment:
+      - MIGRATE=${MIGRATE}
+      - COLLECTSTATIC=${COLLECTSTATIC}
+    expose:
+      - 8000
+      - 8001
+    working_dir: /webapps
+    entrypoint:
+      - /bin/sh
+      - docker-entrypoint.sh
+    volumes:
+      - ./:/webapps
+      - ./compose/logs:/var/log/django
+    depends_on:
+      - db

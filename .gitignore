@@ -1,0 +1,29 @@
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+/.idea/
+
+# Miscellaneous
+*.log
+*.swp
+*.pyc
+*.py~
+**/__pycache__/
+
+# librarys
+/venv/
+
+# static
+/static_collected/
+
+# log
+/compose/log
+
+/.envs/
+/compose/certs/
+
+# media
+/media/
+
+db_backup.sql
