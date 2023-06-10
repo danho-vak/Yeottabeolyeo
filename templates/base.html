@@ -38,12 +38,6 @@
 
     {# SGIS api #}
     <script type="text/javascript" src="https://sgisapi.kostat.go.kr/OpenAPI3/auth/javascriptAuth?consumer_key={{ SGIS_CONSUMER_KEY }}"></script>
-
-    <style>
-      html {
-          calc(var(--vh, 1vh) * 100);
-      }
-    </style>
 </head>
 
 <body id="body">
@@ -60,14 +54,6 @@
           <a href="{% url 'map:main' %}" class="navbar-brand d-flex align-items-center px-4 px-lg-5" id="navbar-brand-img-btn">
               <img src="{% static 'img/base/YTBL_logo.png' %}" alt="여따버려!">
           </a>
-{#          <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">#}
-{#              <span class="navbar-toggler-icon"></span>#}
-{#          </button>#}
-{#          <div class="collapse navbar-collapse" id="navbarCollapse">#}
-{#              <div class="navbar-nav ms-auto p-4 p-lg-0">#}
-{#                  <a href="{% url 'map:main' %}" class="nav-item nav-link active">Home</a>#}
-{#              </div>#}
-{#          </div>#}
       </nav>
     </header>
     <!-- Navbar End -->
@@ -108,6 +94,12 @@
     <script>
       const vh = window.innerHeight * 0.01;
       document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+      const navbarVh = document.body.querySelector('header').offsetHeight * 0.01;
+      document.querySelector('main').style.setProperty('--vh', `${navbarVh}px`);
+
+      const mainVh = document.querySelector('#main-root-wrapper').offsetHeight;
+      document.querySelector('#search-btn-wrapper').style.setProperty('--mainH', `${mainVh}px`);
     </script>
 
     <!-- Extra Javascript -->
