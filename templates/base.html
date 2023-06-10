@@ -10,7 +10,7 @@
     <meta content="" name="keywords">
     <meta content="" name="description">
     <meta charset="utf-8">
-  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
 
     <!-- Favicon -->
@@ -38,9 +38,15 @@
 
     {# SGIS api #}
     <script type="text/javascript" src="https://sgisapi.kostat.go.kr/OpenAPI3/auth/javascriptAuth?consumer_key={{ SGIS_CONSUMER_KEY }}"></script>
+
+    <style>
+      html {
+          calc(var(--vh, 1vh) * 100);
+      }
+    </style>
 </head>
 
-<body class="h-100" id="body">
+<body id="body">
     <!-- Spinner Start -->
     <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;"></div>
@@ -78,11 +84,11 @@
       <!-- Map End -->
     </main>
 
-    <!-- Copyright Start -->
-    <footer class="mt-auto py-2 bg-light footer fixed-bottom">
-      <div class="text-end pe-3">YTBL, All Right Reserved.</div>
-    </footer>
-    <!-- Copyright End -->
+{#    <!-- Copyright Start -->#}
+{#    <footer class="mt-auto py-2 bg-light footer fixed-bottom">#}
+{#      <div class="text-end pe-3">YTBL, All Right Reserved.</div>#}
+{#    </footer>#}
+{#    <!-- Copyright End -->#}
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -99,6 +105,10 @@
     <!-- Template Javascript -->
     <script src="{% static 'js/main.js' %}"></script>
     <script src="{% static 'js/utils.js' %}"></script>
+    <script>
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    </script>
 
     <!-- Extra Javascript -->
     {% block extra_script %}
