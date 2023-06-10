@@ -173,7 +173,7 @@ main {
 
 #search-btn-wrapper {
   z-index: 9999;
-  top: calc(var(--mainH, 100svh) - 10svh);
-  left: calc(50vw + 1rem);
+  top: calc(var(--mainH, 100svh) - 5svh);
+  left: calc(50vw);
   transform: translate(-50%, 0%);
 }

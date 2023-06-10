@@ -13,6 +13,8 @@ const moveToCurrentLocation = () => {
     const utmkXY = new sop.LatLng (position.coords.latitude, position.coords.longitude);
     map.setView(sop.utmk(utmkXY.x, utmkXY.y), 12);
     currentPosition = [utmkXY.x, utmkXY.y];
+  }, (error) => {
+    alert('위치 정보를 가져올 수 없습니다. 검색 기능을 이용해주세요.');
   });
 }
 
